@@ -1,14 +1,15 @@
 /*************************************************************
  * 1. Name:
- *      Demo
+ *       Martin Nkala, Amber Robbins
  * 2. Assignment Name:
  *      Lab 07: Orbit Simulator
  * 3. Assignment Description:
  *      Simulate satellites orbiting the earth
  * 4. What was the hardest part? Be as specific as possible.
- *      ??
+ *      Getting all the math to work properly, and initializing
+ *      the variables successfully in the object constructors.
  * 5. How long did it take for you to complete the assignment?
- *      ??
+ *      It took about 9.5 hours to complete.
  *****************************************************************/
 
 #include <cassert>      // for ASSERT
