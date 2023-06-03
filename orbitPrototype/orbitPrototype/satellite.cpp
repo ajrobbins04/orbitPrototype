@@ -2,15 +2,15 @@
 
 void Satellite::update()
 {
-	float x = pos.getMetersX();
-	float dx = v.getDx();
-	float ddx = acc.getDDx();
-	float newX = x * dx * TIME + (ddx * pow(TIME, 2));
-	pos.setMetersX(newX);
+	double x = pos.getMetersX();
+	double dx = v.getDx();
+	double ddx = acc.getDDx();
+	double newX = x * dx * TIME + (ddx * pow(TIME, 2));
+	pos.addMetersX(newX);
    
-	float y = pos.getMetersY();
-	float dy = v.getDy();
-	float ddy = acc.getDDy();
-	float newY = y * dy * TIME + (ddy * pow(TIME, 2));
+	double y = pos.getMetersY();
+	double dy = v.getDy();
+	double ddy = acc.getDDy();
+	double newY = y * dy * TIME + (ddy * pow(TIME, 2));
 	pos.setMetersY(newY);
 }

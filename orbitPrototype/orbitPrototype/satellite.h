@@ -20,22 +20,35 @@ public:
 	   this->acc = acc;
 	}
    
-	void setPosition(float x, float y)
+	void setPosition(double x, double y)
 	{
 	    pos.setMetersX(x);
 	    pos.setMetersY(y);
 	}
+	
+	void setPosition(Position &pos)
+	{
+		this->pos = pos;
+	}
    
-	void setVelocity(float dx, float dy)
+	void setVelocity(double dx, double dy)
 	{
 	    v.setDx(dx);
 	    v.setDy(dy);
 	}
+	void setVelocity(Velocity &v)
+	{
+		this->v = v;
+	}
    
-	void setAcceleration(float ddx, float ddy)
+	void setAcceleration(double ddx, double ddy)
 	{
 	    acc.setDDx(ddx);
 	    acc.setDDy(ddy);
+	}
+	void setAcceleration(Acceleration &acc)
+	{
+		this->acc = acc;
 	}
    
 	void update();

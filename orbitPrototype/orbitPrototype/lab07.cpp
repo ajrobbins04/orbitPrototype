@@ -31,8 +31,21 @@ public:
    Demo(Position ptUpperRight) :
 	  ptUpperRight(ptUpperRight)
    {
-	//  ptHubble.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
-	 // ptHubble.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
+	   ptHubble.setMetersX(21082000);
+	   ptHubble.setMetersY(36515000);
+	   
+	   v.setDx(-2685);
+	   v.setDy(1550);
+	   
+	   acc.setDDx(-0.1122);
+	   acc.setDDy(-0.1943);
+	   
+	   hubble.setPosition(ptHubble);
+	   hubble.setVelocity(v);
+	   hubble.setAcceleration(acc);
+	  
+	 //  ptHubble.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
+	 //  ptHubble.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
 
 	  ptSputnik.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
 	  ptSputnik.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
@@ -57,8 +70,13 @@ public:
 	  phaseStar = 0;
    }
 
+	
 
-
+	Position ptHubble;
+	Velocity v;
+	Acceleration acc;
+	Satellite hubble;
+	
    Position ptSputnik;
    Position ptStarlink;
    Position ptCrewDragon;
@@ -93,10 +111,10 @@ void callBack(const Interface* pUI, void* p)
    // accept input
    //
    
-   Position ptHubble(21082000, 36515000);
-   Velocity v(-2685, 1550);
-   Acceleration acc(-0.1122, -0.1943);
-   Satellite(ptHubble, v, acc);
+	//Position ptHubble(21082000, 36515000);
+	//Velocity v(-2685, 1550);
+	//Acceleration acc(-0.1122, -0.1943);
+	
  
    // move by a little
    if (pUI->isUp())
@@ -108,6 +126,7 @@ void callBack(const Interface* pUI, void* p)
    if (pUI->isRight())
 	  pDemo->ptShip.addPixelsX(1.0);
 
+	pDemo->hubble.update();
 
    //
    // perform all the game logic
@@ -117,6 +136,7 @@ void callBack(const Interface* pUI, void* p)
    pDemo->angleEarth += 0.01;
    pDemo->angleShip += 0.02;
    pDemo->phaseStar++;
+	
 
    //
    // draw everything
@@ -129,6 +149,7 @@ void callBack(const Interface* pUI, void* p)
    // draw satellites
    
    gout.drawHubble    (pDemo->ptHubble,     pDemo->angleShip);
+	
    /*
    gout.drawCrewDragon(pDemo->ptCrewDragon, pDemo->angleShip);
 
