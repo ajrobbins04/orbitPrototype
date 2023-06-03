@@ -31,18 +31,8 @@ public:
    Demo(Position ptUpperRight) :
 	  ptUpperRight(ptUpperRight)
    {
-	   ptHubble.setMetersX(21082000);
-	   ptHubble.setMetersY(36515000);
-	   
-	   v.setDx(-2685);
-	   v.setDy(1550);
-	   
-	   acc.setDDx(-0.1122);
-	   acc.setDDy(-0.1943);
-	   
-	   hubble.setPosition(ptHubble);
-	   hubble.setVelocity(v);
-	   hubble.setAcceleration(acc);
+ 
+
 	  
 	 //  ptHubble.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
 	 //  ptHubble.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
@@ -72,10 +62,11 @@ public:
 
 	
 
-	Position ptHubble;
+	Position pos;
 	Velocity v;
 	Acceleration acc;
-	Satellite hubble;
+
+   Satellite hubble;
 	
    Position ptSputnik;
    Position ptStarlink;
@@ -115,7 +106,11 @@ void callBack(const Interface* pUI, void* p)
 	//Velocity v(-2685, 1550);
 	//Acceleration acc(-0.1122, -0.1943);
 	
- 
+	pDemo->acc.reCalculate(pDemo->pos);
+	pDemo->v.reCalculate(pDemo->acc);
+	pDemo->hubble.update();
+
+	
    // move by a little
    if (pUI->isUp())
 	  pDemo->ptShip.addPixelsY(1.0);
@@ -125,8 +120,6 @@ void callBack(const Interface* pUI, void* p)
 	  pDemo->ptShip.addPixelsX(-1.0);
    if (pUI->isRight())
 	  pDemo->ptShip.addPixelsX(1.0);
-
-	pDemo->hubble.update();
 
    //
    // perform all the game logic
@@ -148,7 +141,7 @@ void callBack(const Interface* pUI, void* p)
 
    // draw satellites
    
-   gout.drawHubble    (pDemo->ptHubble,     pDemo->angleShip);
+   gout.drawHubble (pDemo->pos,     pDemo->angleShip);
 	
    /*
    gout.drawCrewDragon(pDemo->ptCrewDragon, pDemo->angleShip);
@@ -160,14 +153,15 @@ void callBack(const Interface* pUI, void* p)
 	*/
 
    // draw parts
-   pt.setPixelsX(pDemo->ptHubble.getPixelsX() + 20);
-   pt.setPixelsY(pDemo->ptHubble.getPixelsY() + 20);
+   pt.setPixelsX(pDemo->pos.getPixelsX() + 20);
+   pt.setPixelsY(pDemo->pos.getPixelsY() + 20);
+	
    /*
    pt.setPixelsX(pDemo->ptCrewDragon.getPixelsX() + 20);
    pt.setPixelsY(pDemo->ptCrewDragon.getPixelsY() + 20);
    gout.drawCrewDragonRight(pt, pDemo->angleShip); // notice only two parameters are set
-
-   gout.drawHubbleLeft(pt, pDemo->angleShip);      // notice only two parameters are set
+   gout.drawHubbleLeft(pDemo->ptHubble, pDemo->angleShip);      // notice only two parameters are set
+  
    pt.setPixelsX(pDemo->ptGPS.getPixelsX() + 20);
    pt.setPixelsY(pDemo->ptGPS.getPixelsY() + 20);
    gout.drawGPSCenter(pt, pDemo->angleShip);       // notice only two parameters are set

@@ -10,14 +10,19 @@
 #include <iostream>
 #include "position.h"
 
+using namespace std;
+
 class Acceleration
 {
 public:
-    Acceleration(): ddx(0.0), ddy(0.0) {}
-    Acceleration(double ddx, double ddy) {
-	   this->ddx = ddx;
-	   this->ddy = ddy;
-    }
+    Acceleration(): ddx(-0.1122), ddy(-0.1943) {}
+
+	Acceleration(double x, double y) {
+		
+		setDDx(x);
+		setDDy(y);
+
+	}
    
     void setDDx(double ddx) { this->ddx = ddx; }
     void setDDy(double ddy) { this->ddy = ddy; }
@@ -26,8 +31,10 @@ public:
     double getDDy() const { return ddy; }
 	
 	double getAngle(Position &pos);
+	double getAngle(double x, double y);
 	double getGravityHeight();
    
+	void calculate(double angle, double gHeight);
 	void reCalculate(Position &pos);
 
    

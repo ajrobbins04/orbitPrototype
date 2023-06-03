@@ -7,7 +7,8 @@
 class Velocity
 {
 public:
-    Velocity(): dx(0.0), dy(0.0) {}
+    Velocity(): dx(-2685), dy(1550) {}
+	
     Velocity(double dx, double dy) {
 	   this->dx = dx;
 	   this->dy = dy;

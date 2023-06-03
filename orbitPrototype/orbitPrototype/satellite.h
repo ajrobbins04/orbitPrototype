@@ -12,9 +12,9 @@
 class Satellite
 {
 public:
-	Satellite() : pos(0.0, 0.0), v(0.0, 0.0), acc(0.0, 0.0) {}
+	Satellite() : pos(21082000, 36515000), v(-2685, 1550), acc(-0.1122, -0.1943) {}
    
-	Satellite(Position pos, Velocity v, Acceleration acc) {
+	void set(Position &pos, Velocity &v, Acceleration &acc) {
 	   this->pos = pos;
 	   this->v = v;
 	   this->acc = acc;

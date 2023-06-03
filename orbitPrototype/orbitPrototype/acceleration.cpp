@@ -4,20 +4,39 @@ double Acceleration::getAngle(Position & pos)
 {
 	double x = pos.getMetersX();
 	double y = pos.getMetersY();
-
-	double angleRad = atan2(y, x);
-	double angleDeg = angleRad * (180/PI);
+ 
 	
-	return angleDeg;
+	double angle = atan2(x, y);
+	
+	return angle;
 	
 }
 
 double Acceleration::getGravityHeight()
 {
-	double base = (RADIUS/(RADIUS + HEIGHT));
+	double sum = RADIUS + HEIGHT;
+	double base = RADIUS / sum;
 	double gHeight = ACC * pow(base, 2);
-	
+
 	return gHeight;
+}
+
+
+void Acceleration::calculate(double angle, double gHeight)
+{
+	double sinRad = sin(angle);
+	double sinDeg = sinRad * (180/PI);
+
+	double newDDx = gHeight * sinDeg;
+	cout << newDDx << endl;
+	
+	double cosRad = cos(angle);
+	double cosDeg = cosRad * (180/PI);
+	double newDDy = gHeight * cosDeg;
+	cout << newDDy << endl;
+	
+	setDDx(newDDx);
+	setDDy(newDDy);
 }
 
 
