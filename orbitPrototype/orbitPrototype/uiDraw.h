@@ -62,7 +62,7 @@ public:
    virtual void drawGPSRight(const Position& center, double rotation, const Position& offset = Position());
    virtual void drawGPSLeft(const Position& center, double rotation, const Position& offset = Position());
 
-   virtual void drawHubble(const Position& center, double rotation);
+   virtual void drawHubble(const Position &center, double rotation);
    virtual void drawHubbleComputer(const Position& center, double rotation, const Position& offset = Position());
    virtual void drawHubbleTelescope(const Position& center, double rotation, const Position& offset = Position());
    virtual void drawHubbleLeft(const Position& center, double rotation, const Position& offset = Position());

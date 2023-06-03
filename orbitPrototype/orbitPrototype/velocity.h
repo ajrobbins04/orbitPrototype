@@ -20,7 +20,7 @@ public:
     double getDx() const { return dx; }
     double getDy() const { return dy; }
    
-	void reCalculate(Acceleration &acc);
+	void reCalculate(Acceleration *acc);
 	
 private:
     double dx;

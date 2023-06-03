@@ -596,7 +596,7 @@ void ogstream::drawHubbleRight(const Position& center, double rotation, const Po
  *  INPUT center    The position of the ship
  *        rotation  Which direction it is point
  *************************************************************************/
-void ogstream::drawHubble(const Position& center, double rotation)
+void ogstream::drawHubble(const Position &center, double rotation)
 {
    Position posTelescope;
    posTelescope.setPixelsX(2.0);

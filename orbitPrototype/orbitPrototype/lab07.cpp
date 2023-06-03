@@ -60,11 +60,6 @@ public:
 	  phaseStar = 0;
    }
 
-	
-
-	Position pos;
-	Velocity v;
-	Acceleration acc;
 
    Satellite hubble;
 	
@@ -106,10 +101,10 @@ void callBack(const Interface* pUI, void* p)
 	//Velocity v(-2685, 1550);
 	//Acceleration acc(-0.1122, -0.1943);
 	
-	pDemo->acc.reCalculate(pDemo->pos);
-	pDemo->v.reCalculate(pDemo->acc);
+	pDemo->hubble.reCalculate();
 	pDemo->hubble.update();
-
+	
+	Position ptHubble(pDemo->hubble.getPosX(), pDemo->hubble.getPosY());
 	
    // move by a little
    if (pUI->isUp())
@@ -140,8 +135,7 @@ void callBack(const Interface* pUI, void* p)
    ogstream gout(pt);
 
    // draw satellites
-   
-   gout.drawHubble (pDemo->pos,     pDemo->angleShip);
+   gout.drawHubble (ptHubble, pDemo->angleShip);
 	
    /*
    gout.drawCrewDragon(pDemo->ptCrewDragon, pDemo->angleShip);
@@ -153,8 +147,8 @@ void callBack(const Interface* pUI, void* p)
 	*/
 
    // draw parts
-   pt.setPixelsX(pDemo->pos.getPixelsX() + 20);
-   pt.setPixelsY(pDemo->pos.getPixelsY() + 20);
+   pt.setPixelsX((pDemo->hubble.getPosX()/40) + 20);
+   pt.setPixelsY((pDemo->hubble.getPosY()/40) + 20);
 	
    /*
    pt.setPixelsX(pDemo->ptCrewDragon.getPixelsX() + 20);

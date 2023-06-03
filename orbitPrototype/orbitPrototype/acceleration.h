@@ -30,12 +30,12 @@ public:
     double getDDx() const { return ddx; }
     double getDDy() const { return ddy; }
 	
-	double getAngle(Position &pos);
+	double getAngle(Position *pos);
 	double getAngle(double x, double y);
 	double getGravityHeight();
    
 	void calculate(double angle, double gHeight);
-	void reCalculate(Position &pos);
+	void reCalculate(Position *pos);
 
    
 private:

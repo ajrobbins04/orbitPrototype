@@ -12,52 +12,43 @@
 class Satellite
 {
 public:
-	Satellite() : pos(21082000, 36515000), v(-2685, 1550), acc(-0.1122, -0.1943) {}
-   
-	void set(Position &pos, Velocity &v, Acceleration &acc) {
-	   this->pos = pos;
-	   this->v = v;
-	   this->acc = acc;
-	}
-   
+	//Satellite() : pos(21082000, 36515000), v(-2685, 1550), acc(-0.1122, -0.1943) {}
+	Satellite() : pos(new Position(21082000, 36515000)), v(new Velocity(-2685, 1550)),
+														  acc(new Acceleration(-0.1122, -0.1943)) {}
+
 	void setPosition(double x, double y)
 	{
-	    pos.setMetersX(x);
-	    pos.setMetersY(y);
+	    pos->setMetersX(x);
+	    pos->setMetersY(y);
 	}
-	
-	void setPosition(Position &pos)
-	{
-		this->pos = pos;
-	}
+
    
 	void setVelocity(double dx, double dy)
 	{
-	    v.setDx(dx);
-	    v.setDy(dy);
+	    v->setDx(dx);
+	    v->setDy(dy);
 	}
-	void setVelocity(Velocity &v)
-	{
-		this->v = v;
-	}
+
    
 	void setAcceleration(double ddx, double ddy)
 	{
-	    acc.setDDx(ddx);
-	    acc.setDDy(ddy);
+	    acc->setDDx(ddx);
+	    acc->setDDy(ddy);
 	}
-	void setAcceleration(Acceleration &acc)
-	{
-		this->acc = acc;
-	}
-   
-	void update();
+
+	Position* getPos() { return pos; }
 	
+	double getPosX()  const { return pos->getMetersX(); }
+	double getPosY()  const { return pos->getMetersY(); }
+   
+	void reCalculate();
+	void update();
+	Position *pos;
    
 private:
-	Position pos;
-	Velocity v;
-	Acceleration acc;
+	
+	Velocity *v;
+	Acceleration *acc;
    
 };
 

@@ -1,9 +1,9 @@
 #include "acceleration.h"
 
-double Acceleration::getAngle(Position & pos)
+double Acceleration::getAngle(Position *pos)
 {
-	double x = pos.getMetersX();
-	double y = pos.getMetersY();
+	double x = pos->getMetersX();
+	double y = pos->getMetersY();
  
 	
 	double angle = atan2(x, y);
@@ -40,7 +40,7 @@ void Acceleration::calculate(double angle, double gHeight)
 }
 
 
-void Acceleration::reCalculate(Position &pos)
+void Acceleration::reCalculate(Position *pos)
 {
 	double gHeight = getGravityHeight();
 	double angle = getAngle(pos);
