@@ -19,6 +19,12 @@
 #include "acceleration.h"
 #include "satellite.h"
 #include "velocity.h"
+
+#define TIME 48
+#define FRAME_RATE 80
+#define SECONDS_DAY 86400
+#define PI 3.141529
+
 using namespace std;
 
 /*************************************************************************
@@ -55,8 +61,10 @@ public:
 	  ptStar.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
 	  ptStar.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
 
-	  angleShip = 0.0;
-	  angleEarth = 0.0;
+	   double rate = -(2 * PI / FRAME_RATE);
+	   double frameRate = rate * TIME;
+	   angleShip = frameRate;
+	   angleEarth = frameRate;
 	  phaseStar = 0;
    }
 
@@ -121,8 +129,8 @@ void callBack(const Interface* pUI, void* p)
    //
 
    // rotate the earth
-   pDemo->angleEarth += 0.01;
-   pDemo->angleShip += 0.02;
+   pDemo->angleEarth -= 0.01;
+   pDemo->angleShip -= 0.01;
    pDemo->phaseStar++;
 	
 
@@ -176,6 +184,8 @@ void callBack(const Interface* pUI, void* p)
 
    // draw the earth
    pt.setMeters(0.0, 0.0);
+
+	
    gout.drawEarth(pt, pDemo->angleEarth);
 }
 
