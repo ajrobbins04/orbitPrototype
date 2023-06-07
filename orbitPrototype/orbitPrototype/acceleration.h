@@ -15,6 +15,7 @@ using namespace std;
 class Acceleration
 {
 public:
+	//Acceleration(): ddx(0.0), ddy(0.0) {}
     Acceleration(): ddx(-0.1122), ddy(-0.1943) {}
 
 	Acceleration(double x, double y) {
@@ -39,8 +40,8 @@ public:
 
    
 private:
-   double ddx;
-   double ddy;
+   double ddx; // change in change in x
+   double ddy; // change in change in y
    
 };
 
