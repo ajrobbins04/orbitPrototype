@@ -51,6 +51,8 @@
 		02D8026C2A2B947D00CE35A0 /* acceleration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = acceleration.cpp; sourceTree = "<group>"; };
 		02D8026E2A2B95C600CE35A0 /* velocity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = velocity.cpp; sourceTree = "<group>"; };
 		02D802722A2B985500CE35A0 /* satellite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = satellite.cpp; sourceTree = "<group>"; };
+		02DEF0172A3A9A5400999231 /* spaceObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = spaceObj.h; sourceTree = "<group>"; };
+		02DEF0182A3A9B3300999231 /* direction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = direction.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,8 @@
 				02D802652A2B911E00CE35A0 /* uiInteract.h */,
 				02D802662A2B913400CE35A0 /* velocity.h */,
 				02D8026E2A2B95C600CE35A0 /* velocity.cpp */,
+				02DEF0172A3A9A5400999231 /* spaceObj.h */,
+				02DEF0182A3A9B3300999231 /* direction.h */,
 			);
 			path = orbitPrototype;
 			sourceTree = "<group>";

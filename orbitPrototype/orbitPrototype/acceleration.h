@@ -15,13 +15,14 @@ using namespace std;
 class Acceleration
 {
 public:
-	//Acceleration(): ddx(0.0), ddy(0.0) {}
-    Acceleration(): ddx(-0.1122), ddy(-0.1943) {}
+	Acceleration(): ddx(0.0), ddy(0.0) {}
+    //Acceleration(): ddx(-0.1122), ddy(-0.1943) {}
+	
 
-	Acceleration(double x, double y) {
+	Acceleration(double ddx, double ddy) {
 		
-		setDDx(x);
-		setDDy(y);
+		setDDx(ddx);
+		setDDy(ddy);
 
 	}
    
@@ -31,12 +32,11 @@ public:
     double getDDx() const { return ddx; }
     double getDDy() const { return ddy; }
 	
-	double getAngle(Position *pos);
+	double getAngle(const Position &pos);
 	double getAngle(double x, double y);
 	double getGravityHeight();
    
-	void calculate(double angle, double gHeight);
-	void reCalculate(Position *pos);
+	void calculate(const Position &pos);
 
    
 private:

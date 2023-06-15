@@ -1,15 +1,9 @@
 #include "satellite.h"
 
-void Satellite::reCalculate()
-{
-	acc->reCalculate(pos);
-	v->reCalculate(acc);
-}
-
 void Satellite::update()
 {
-	double x = pos->getMetersX();
-	double dx = v->getDx();
+	/*double x = pos->getMetersX();
+	double dx = v.getDx();
 	double ddx = acc->getDDx();
 	
 	double accTimeX = ddx * pow(TIME, 2);
@@ -23,5 +17,5 @@ void Satellite::update()
 	double accTimeY = ddy * pow(TIME, 2);
 	double newY = y + dy * TIME + (accTimeY / 2);
 
-	pos->setMetersY(newY);
+	pos->setMetersY(newY);*/
 }

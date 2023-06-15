@@ -1,9 +1,9 @@
 #include "acceleration.h"
 
-double Acceleration::getAngle(Position *pos)
+double Acceleration::getAngle(const Position &pos)
 {
-	double x = pos->getMetersX();
-	double y = pos->getMetersY();
+	double x = pos.getMetersX();
+	double y = pos.getMetersY();
  
 	
 	double angle = atan2(x, y);
@@ -22,25 +22,9 @@ double Acceleration::getGravityHeight()
 }
 
 
-void Acceleration::calculate(double angle, double gHeight)
-{
-	double sinRad = sin(angle);
-	double sinDeg = sinRad * (180/PI);
-
-	double newDDx = gHeight * sinDeg;
-	cout << newDDx << endl;
-	
-	double cosRad = cos(angle);
-	double cosDeg = cosRad * (180/PI);
-	double newDDy = gHeight * cosDeg;
-	cout << newDDy << endl;
-	
-	setDDx(newDDx);
-	setDDy(newDDy);
-}
 
 
-void Acceleration::reCalculate(Position *pos)
+void Acceleration::calculate(const Position &pos)
 {
 	double gHeight = getGravityHeight();
 	double angle = getAngle(pos);

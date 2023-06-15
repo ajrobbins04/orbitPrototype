@@ -7,8 +7,7 @@
 class Velocity
 {
 public:
-	//Velocity(): dx(0.0), dy(0.0) {}
-    Velocity(): dx(-2685), dy(1550) {}
+	Velocity(): dx(0.0), dy(0.0) {}
 	
 	// non-default constructor
 	Velocity(double dx, double dy) : dx(dx), dy(dy) {}
@@ -29,6 +28,12 @@ public:
    
     double getDx() const { return dx; }
     double getDy() const { return dy; }
+	
+	Velocity getVelocity() const
+	{
+		Velocity v(dx, dy);
+		return v;
+	}
    
 	void addDx(double dx) { setDx(getDx() + dx); }
 	void addDy(double dy) { setDy(getDy() + dy); }
@@ -39,7 +44,7 @@ public:
 		dy += v.dy;
 	}
 	
-	void reCalculate(Acceleration *acc);
+	void reCalculate(const Acceleration &aGravity);
 	void reverse()
 	{
 		dx *= -1.0;

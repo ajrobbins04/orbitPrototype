@@ -7,48 +7,41 @@
 #include <iostream>
 #include "position.h"
 #include "velocity.h"
-#include "acceleration.h"
+#include "direction.h"
 
 class Satellite
 {
 public:
-	//Satellite() : pos(21082000, 36515000), v(-2685, 1550), acc(-0.1122, -0.1943) {}
-	Satellite() : pos(new Position(21082000, 36515000)), v(new Velocity(-2685, 1550)),
-														  acc(new Acceleration(-0.1122, -0.1943)) {}
-
+	Satellite() : name("satellite"), pos(0.0, 0.0), radius(0.0),
+	dir(0.0), velocity(0.0, 0.0), dead(false) {}
+  
 	void setPosition(double x, double y)
 	{
-	    pos->setMetersX(x);
-	    pos->setMetersY(y);
+	    pos.setMetersX(x);
+	    pos.setMetersY(y);
 	}
 
    
 	void setVelocity(double dx, double dy)
 	{
-	    v->setDx(dx);
-	    v->setDy(dy);
+	    velocity.setDx(dx);
+	    velocity.setDy(dy);
 	}
-
-   
-	void setAcceleration(double ddx, double ddy)
-	{
-	    acc->setDDx(ddx);
-	    acc->setDDy(ddy);
-	}
-
-	Position* getPos() { return pos; }
 	
-	double getPosX()  const { return pos->getMetersX(); }
-	double getPosY()  const { return pos->getMetersY(); }
-   
-	void reCalculate();
+	Position getPos() { return pos; }
+	
+	double getPosX()  const { return pos.getMetersX(); }
+	double getPosY()  const { return pos.getMetersY(); }
+
 	void update();
-	Position *pos;
    
 private:
-	
-	Velocity *v;
-	Acceleration *acc;
+	string name;
+	Position pos;
+	double radius;
+	Direction dir;
+	Velocity velocity;
+	bool dead;
    
 };
 
