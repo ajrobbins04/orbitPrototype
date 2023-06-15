@@ -11,7 +11,7 @@
 class SpaceObj
 {
 public:
-	SpaceObj(): name("spaceObj"), pos(0.0, 0.0), radius(0.0) {}
+	SpaceObj(): name("spaceObj"), pos(0.0, 0.0), radius(0.0), dir(0.0) {}
 	
 private:
 	string name;

@@ -1,15 +1,10 @@
-//
-//  direction.h
-//  orbitPrototype
-//
-//  Created by Amber Robbins on 6/14/23.
-//
 
 #ifndef direction_h
 #define direction_h
 class Direction
 {
 public:
+	Direction(): radians(0.0) {}
 	
 private:
 	double radians;

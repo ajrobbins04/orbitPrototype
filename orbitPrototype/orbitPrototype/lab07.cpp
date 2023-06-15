@@ -110,7 +110,7 @@ void callBack(const Interface* pUI, void* p)
 	//Velocity v(-2685, 1550);
 	//Acceleration acc(-0.1122, -0.1943);
 	
-	pDemo->hubble.reCalculate();
+	//pDemo->hubble.reCalculate();
 	pDemo->hubble.update();
 	
 	Position ptHubble(pDemo->hubble.getPosX(), pDemo->hubble.getPosY());
