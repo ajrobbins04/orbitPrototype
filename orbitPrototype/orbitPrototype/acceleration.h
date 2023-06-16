@@ -1,14 +1,15 @@
 #ifndef acceleration_h
 #define acceleration_h
 
-#define RADIUS 6378000
-#define HEIGHT 35786000
-#define ACC -9.8067
+#define EARTH_RADIUS 6378000
+#define EARTH_HEIGHT 35786000
+#define EARTH_GRAVITY -9.8067
 #define PI 3.141529
 
 #include <cmath>
 #include <iostream>
 #include "position.h"
+#include "direction.h"
 
 using namespace std;
 
@@ -16,14 +17,9 @@ class Acceleration
 {
 public:
 	Acceleration(): ddx(0.0), ddy(0.0) {}
-    //Acceleration(): ddx(-0.1122), ddy(-0.1943) {}
-	
-
-	Acceleration(double ddx, double ddy) {
-		
-		setDDx(ddx);
-		setDDy(ddy);
-
+	Acceleration(double acc, const Direction &direction): ddx(0.0), ddy(0.0)
+	{
+		updateAcc(acc, direction);
 	}
    
     void setDDx(double ddx) { this->ddx = ddx; }
@@ -32,11 +28,8 @@ public:
     double getDDx() const { return ddx; }
     double getDDy() const { return ddy; }
 	
-	double getAngle(const Position &pos);
-	double getAngle(double x, double y);
-	double getGravityHeight();
-   
-	void calculate(const Position &pos);
+	double getGravity(double altitude);
+	void updateAcc(double acc, const Direction &direction);
 
    
 private:

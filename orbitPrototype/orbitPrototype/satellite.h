@@ -10,6 +10,7 @@
 #define satellite_h
  
 #define TIME 48
+#define EARTH_RADIUS 6378000
 
 #include <cmath>
 #include <iostream>
@@ -48,6 +49,7 @@ public:
 	Position getPos() { return pos; }
 	double getPosX()  const { return pos.getMetersX(); }
 	double getPosY()  const { return pos.getMetersY(); }
+	double getAltitude();
 
 	void update();
    

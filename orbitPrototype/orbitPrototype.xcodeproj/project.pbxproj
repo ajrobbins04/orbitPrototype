@@ -57,6 +57,7 @@
 		02DEF0182A3A9B3300999231 /* direction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = direction.h; sourceTree = "<group>"; };
 		02DEF0192A3A9EE700999231 /* spaceObj.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = spaceObj.cpp; sourceTree = "<group>"; };
 		02DEF01B2A3AA3FA00999231 /* direction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = direction.cpp; sourceTree = "<group>"; };
+		02DEF01D2A3BFF8A00999231 /* testVelocity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testVelocity.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +113,7 @@
 				02DEF0192A3A9EE700999231 /* spaceObj.cpp */,
 				02DEF0182A3A9B3300999231 /* direction.h */,
 				02DEF01B2A3AA3FA00999231 /* direction.cpp */,
+				02DEF01D2A3BFF8A00999231 /* testVelocity.h */,
 			);
 			path = orbitPrototype;
 			sourceTree = "<group>";

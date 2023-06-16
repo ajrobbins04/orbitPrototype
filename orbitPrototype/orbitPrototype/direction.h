@@ -2,7 +2,7 @@
  * Header File:
  *    Direction
  * Author:
- *    Amber Robbins, Martin Nkala
+ *
  * Summary:
  *
  ************************************************************************/
@@ -44,6 +44,9 @@ public:
 	
 	void setDxDy(double dx, double dy){ radians = atan2(dx, dy); }
 	void setDegrees(double degrees)   { radians = convertToRadians(degrees); }
+	
+	double getDx() const { return sin(radians); }
+	double getDy() const { return cos(radians); }
 	
 	void setDown()  { radians = M_PI; }
 	void setUp()    { radians = 0.0;  }

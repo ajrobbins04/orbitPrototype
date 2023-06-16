@@ -1,37 +1,25 @@
 #include "acceleration.h"
 
-double Acceleration::getAngle(const Position &pos)
+/*********************************************
+ * UPDATE ACCELERATION
+ * Updates the acceleration at the current direction.
+ *********************************************/
+void Acceleration::updateAcc(double acc, const Direction &direction)
 {
-	double x = pos.getMetersX();
-	double y = pos.getMetersY();
- 
-	
-	double angle = atan2(x, y);
-	
-	return angle;
-	
+	setDDx(acc * direction.getDx());
+	setDDy(acc * direction.getDy());
 }
 
-double Acceleration::getGravityHeight()
+/*********************************************
+ * GET GRAVITY
+ * Computes amount of acceleration at a given point
+ *********************************************/
+double Acceleration::getGravity(double altitude)
 {
-	double sum = RADIUS + HEIGHT;
-	double base = RADIUS / sum;
-	double gHeight = ACC * pow(base, 2);
+	// just a temporary variable to store one aspect of
+	// the gravity computation
+	double tmp = EARTH_RADIUS / (EARTH_RADIUS + altitude);
+	double acc = EARTH_GRAVITY * pow(tmp, 2);
 
-	return gHeight;
-}
-
-
-
-
-void Acceleration::calculate(const Position &pos)
-{
-	double gHeight = getGravityHeight();
-	double angle = getAngle(pos);
-	
-	double newDDx = gHeight * sin(angle);
-	double newDDy = gHeight * cos(angle);
-	
-	setDDx(newDDx);
-	setDDy(newDDy);
+	return acc;
 }
