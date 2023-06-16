@@ -1,3 +1,11 @@
+/***********************************************************************
+ * Header File:
+ *    Satellite
+ * Author:
+ *    Amber Robbins, Martin Nkala
+ * Summary:
+ *
+ ************************************************************************/
 #ifndef satellite_h
 #define satellite_h
  
@@ -8,12 +16,21 @@
 #include "position.h"
 #include "velocity.h"
 #include "direction.h"
+#include "spaceObj.h"
 
-class Satellite
+class Satellite : public SpaceObj
 {
 public:
 	Satellite() : name("satellite"), pos(0.0, 0.0), radius(0.0),
 	dir(0.0), velocity(0.0, 0.0), dead(false) {}
+	
+	Satellite(string name, const Position &pos, double radius, Direction &dir, const Velocity &velocity) :
+	name("satellite"), pos(0.0, 0.0), radius(0.0),
+	dir(0.0), velocity(0.0, 0.0), dead(false) {
+		
+		dir.setDxDy(velocity.getDx(), velocity.getDy());
+		
+	}
   
 	void setPosition(double x, double y)
 	{
@@ -29,7 +46,6 @@ public:
 	}
 	
 	Position getPos() { return pos; }
-	
 	double getPosX()  const { return pos.getMetersX(); }
 	double getPosY()  const { return pos.getMetersY(); }
 

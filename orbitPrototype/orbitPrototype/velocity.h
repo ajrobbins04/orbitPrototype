@@ -1,8 +1,17 @@
+/***********************************************************************
+ * Header File:
+ *    Velocity
+ * Author:
+ *    Amber Robbins, Martin Nkala
+ * Summary:
+ *
+ ************************************************************************/
 #ifndef velocity_h
 #define velocity_h
 #define TIME 48
 
 #include "acceleration.h"
+#include "direction.h"
 
 class Velocity
 {
@@ -34,6 +43,7 @@ public:
 		Velocity v(dx, dy);
 		return v;
 	}
+	
    
 	void addDx(double dx) { setDx(getDx() + dx); }
 	void addDy(double dy) { setDy(getDy() + dy); }

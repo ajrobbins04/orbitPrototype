@@ -1,4 +1,11 @@
-
+/***********************************************************************
+ * Header File:
+ *    SpaceObj
+ * Author:
+ *    Amber Robbins, Martin Nkala
+ * Summary:
+ *
+ ************************************************************************/
 #ifndef spaceObj_h
 #define spaceObj_h
 
@@ -7,6 +14,8 @@
 #include <string>
 #include "position.h"
 #include "direction.h"
+
+using namespace std;
 
 class SpaceObj
 {
