@@ -13,12 +13,12 @@
 #include "acceleration.h"
 #include "direction.h"
 
-class testVelocity;
+class TestVelocity;
 
 class Velocity
 {
 public:
-	friend testVelocity;
+	friend TestVelocity;
 	
 	// constructors
 	Velocity(): dx(0.0), dy(0.0) {}
@@ -72,7 +72,7 @@ public:
 		dy += v.dy;
 	}
 	
-	void update(const Acceleration &aGravity);
+	void updateVelocity(const Acceleration &acc);
 	void reverse()
 	{
 		dx *= -1.0;

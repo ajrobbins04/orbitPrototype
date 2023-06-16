@@ -13,13 +13,14 @@ double Velocity::getSpeed() const
  * Updates the velocity based on its current velocity,
  * acceleration, and time.
  *********************************************/
-void Velocity::update(const Acceleration &aGravity)
+void Velocity::updateVelocity(const Acceleration &acc)
 {
 	double currDx = getDx();
 	double currDy = getDy();
 	
-	double newDx = currDx + aGravity.getDDx() * TIME;
-	double newDy = currDy + aGravity.getDDy() * TIME;
+	// velocity = current velocity + acceleration * time
+	double newDx = currDx + acc.getDDx() * TIME;
+	double newDy = currDy + acc.getDDy() * TIME;
 	
 	setDx(newDx);
 	setDy(newDy);

@@ -11,11 +11,15 @@
 #include "position.h"
 #include "direction.h"
 
+class TestAcceleration;
+
 using namespace std;
 
 class Acceleration
 {
 public:
+	friend TestAcceleration;
+	
 	Acceleration(): ddx(0.0), ddy(0.0) {}
 	Acceleration(double acc, const Direction &direction): ddx(0.0), ddy(0.0)
 	{
@@ -29,7 +33,7 @@ public:
     double getDDy() const { return ddy; }
 	
 	double getGravity(double altitude);
-	void updateAcc(double acc, const Direction &direction);
+	void updateAcc(double gravity, const Direction &direction);
 
    
 private:

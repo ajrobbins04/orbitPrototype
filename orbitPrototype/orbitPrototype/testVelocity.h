@@ -24,9 +24,16 @@ using namespace std;
 class TestVelocity
 {
 public:
-   void run()
-   {
-
-   }
-   
-#endif /* testVelocity_h */
+	void test_updateVelocity();
+	
+	void run()
+	{
+		test_updateVelocity();
+	}
+	
+#endif
+	
+	void TestVelocity::test_updateVelocity()
+	{
+		
+	}
